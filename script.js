@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bar こうりん - Interactive JavaScript Features
+   BAR こうりん - Interactive JavaScript Features
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {

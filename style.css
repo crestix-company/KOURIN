@@ -1,5 +1,5 @@
 /* ==========================================================================
-   bar こうりん - Premium Linear Dark Aesthetic CSS Design
+   BAR こうりん - Premium Linear Dark Aesthetic CSS Design
    ========================================================================== */
 
 /* Import Premium Fonts */
@@ -250,6 +250,7 @@ nav ul li a:hover::after {
 /* --- Hero Section --- */
 .hero {
   height: 100vh;
+  height: 100dvh;
   min-height: 650px;
   display: flex;
   align-items: center;
@@ -370,45 +371,6 @@ nav ul li a:hover::after {
   border-color: var(--text-primary);
 }
 
-/* Scroll Down Indicator */
-.scroll-down {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  color: var(--text-muted);
-}
-
-.scroll-line {
-  width: 1px;
-  height: 60px;
-  background-color: var(--border-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.scroll-line::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background-color: var(--accent-gold);
-  animation: scrollAnim 2s infinite ease-in-out;
-}
-
-@keyframes scrollAnim {
-  0% { transform: translateY(-20px); }
-  100% { transform: translateY(60px); }
-}
 
 
 /* --- General Section Layout --- */
@@ -1102,6 +1064,12 @@ footer {
 @media (max-width: 768px) {
   .desktop-only {
     display: none !important;
+  }
+  
+  .hero {
+    min-height: 520px;
+    height: 100vh;
+    height: 100dvh;
   }
   
   .mobile-only {

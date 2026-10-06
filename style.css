@@ -565,30 +565,122 @@ nav ul li a:hover::after {
   margin-bottom: 30px;
 }
 
-.system-main-price {
-  font-size: 1.8rem;
-  color: var(--text-primary);
-  font-weight: 700;
-  margin-bottom: 12px;
+.system-heading {
+  margin-bottom: 24px;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
 }
 
-.system-main-price span {
-  font-size: 2.8rem;
+.system-plan + .system-plan {
+  border-top: 1px solid var(--border-color);
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+.system-plan h4 {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.system-plan-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.system-plan-duration {
   color: var(--accent-green);
-  font-family: 'Montserrat', sans-serif;
-  margin: 0 4px;
+  white-space: nowrap;
+}
+
+.system-plan-duration small {
+  font-size: 0.55em;
+  margin-left: 4px;
+}
+
+.system-plan-amount {
+  color: var(--accent-pink);
+  white-space: nowrap;
 }
 
 .system-sub-price {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  letter-spacing: 0;
+}
+
+.system-sub-price strong {
+  color: var(--text-primary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.system-plan-note,
+.system-payment-notes p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+
+.system-plan-note {
+  margin-top: 6px;
+}
+
+.system-payment-notes {
+  margin-top: 24px;
+}
+
+.system-payment-notes p + p {
+  margin-top: 8px;
+}
+
+.extra-drinks {
+  margin-top: 28px;
+}
+
+.extra-drinks p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.system-guidelines {
+  margin: -20px 0 40px;
+}
+
+.system-guidelines h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.system-guidelines ul {
+  padding-left: 1.3em;
+  font-size: 0.85rem;
+  line-height: 1.9;
   color: var(--text-secondary);
 }
 
-.system-sub-price span {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  font-family: 'Montserrat', sans-serif;
+.system-guidelines li + li {
+  margin-top: 8px;
+}
+
+.special-food-price {
+  color: var(--accent-pink);
+  font-size: 1.6rem;
   font-weight: 700;
+  margin: 12px 0;
+}
+
+.special-food-price small {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 
 .drink-list-wrapper h4 {
@@ -621,7 +713,7 @@ nav ul li a:hover::after {
   padding: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: var(--bg-tertiary);
 }
 
@@ -680,12 +772,20 @@ nav ul li a:hover::after {
 }
 
 .snack-link {
+  background: none;
+  border: 0;
+  font: inherit;
   color: var(--accent-green);
   font-weight: 700;
   border-bottom: 1px solid var(--accent-green);
   padding-bottom: 4px;
   cursor: pointer;
   transition: all var(--transition-speed);
+}
+
+.snack-link:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 6px;
 }
 
 .snack-link:hover {
@@ -773,15 +873,31 @@ nav ul li a:hover::after {
 
 .snack-list-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px 40px;
   margin-bottom: 40px;
 }
 
 .snack-item-card {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 16px;
   border-bottom: 1px solid var(--border-color-muted);
   padding-bottom: 12px;
+}
+
+.snack-item-price {
+  color: var(--accent-green);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.snack-pricing-note {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 24px;
 }
 
 .snack-item-name {
@@ -794,7 +910,7 @@ nav ul li a:hover::after {
   border-top: var(--grid-line-width) solid var(--border-color);
   padding-top: 24px;
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 

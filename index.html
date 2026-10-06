@@ -60,7 +60,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261006-pricing">
 </head>
 <body>
 
@@ -216,32 +216,38 @@
         <!-- Main Price System -->
         <div class="system-details">
           <div class="system-price-box">
-            <h3 style="margin-bottom: 20px; font-size: 1.4rem;">基本料金システム</h3>
-            <div class="system-main-price">
-              飲み放題・歌い放題 <span>80</span>分
+            <h3 class="system-heading">飲み放題・歌い放題</h3>
+            <div class="system-plan">
+              <h4>2名様以上のお客様</h4>
+              <p class="system-plan-price"><span class="system-plan-duration">80<small>分</small></span><span class="system-plan-amount">¥2,000</span></p>
+              <p class="system-sub-price">自動延長 <strong>10分 / ¥300</strong></p>
             </div>
-            <div class="system-main-price" style="color: var(--accent-gold); font-size: 2.2rem; font-family: 'Montserrat', sans-serif;">
-              ¥2,000
+            <div class="system-plan">
+              <h4>お一人様</h4>
+              <p class="system-plan-price"><span class="system-plan-duration">60<small>分</small></span><span class="system-plan-amount">¥2,000</span></p>
+              <p class="system-sub-price">自動延長 <strong>10分 / ¥200</strong></p>
+              <p class="system-plan-note">※2時間目以降は10分 / ¥300</p>
             </div>
-            <div class="system-sub-price" style="margin-top: 15px;">
-              延長 <span>10</span>分 / <span>¥300</span>
+            <div class="system-payment-notes">
+              <p>※お時間のお知らせはいたしません。</p>
+              <p>※料金はすべて税別です。現金払いの方は消費税分をサービスいたします。</p>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px; line-height: 1.4;">
-              ※現金払いの方については消費税分サービスさせていただきます。
-            </p>
           </div>
 
           <div class="drink-list-wrapper">
             <h4>飲み放題メニュー</h4>
             <div class="drink-grid">
-              <div class="drink-item">ハイボール</div>
-              <div class="drink-item">レモンサワー</div>
+              <div class="drink-item">ハイボール（BLACK Clear）</div>
+              <div class="drink-item">よだれモンサワー</div>
               <div class="drink-item">カクテル各種</div>
               <div class="drink-item">焼酎 (麦・芋・黒糖)</div>
               <div class="drink-item">泡盛</div>
               <div class="drink-item">梅酒</div>
             </div>
-            <p class="system-notes">※一部、別料金メニューもございます。詳しくはスタッフへお尋ねください。</p>
+            <div class="extra-drinks">
+              <h4>別料金メニュー</h4>
+              <p>ビール、ワイン、テキーラ、ウイスキー各種、ミスティア、ティフィン、ディタ、コアントロ</p>
+            </div>
           </div>
         </div>
 
@@ -250,6 +256,7 @@
           <div class="special-food-header">
             <span class="special-tag">RECOMMENDED FOOD</span>
             <h4>炎の焼きカマンベール</h4>
+            <p class="special-food-price">¥1,200 <small>（税別）</small></p>
             <p class="special-food-desc">
               目の前で炎が舞う、フランベのような華やかな演出。濃厚なバニラの香りととろけるチーズのコクは、ワインやウイスキーのお供に最適です。
             </p>
@@ -260,11 +267,20 @@
         </div>
       </div>
 
+      <div class="system-guidelines">
+        <h3>ご利用にあたって</h3>
+        <ul>
+          <li>飲み放題ドリンクはお1人様1グラス制です。飲み切ってから次のご注文をお願いいたします。別料金メニューは複数注文いただけます。</li>
+          <li>飲み放題ドリンクの飲み残しは、グラス1個につき¥500を頂戴いたします。節度あるご注文へのご協力をお願いいたします。</li>
+          <li>お手洗いはお会計の前にお願いいたします。</li>
+        </ul>
+      </div>
+
       <!-- Trigger to show snacks list -->
       <div class="snack-trigger-wrapper">
         <p class="snack-trigger-text">
           その他、お酒にぴったりなおつまみを多数ご用意しています。<br>
-          <span class="snack-link" id="btnOpenSnack">その他のメニューはこちら</span>
+          <button type="button" class="snack-link" id="btnOpenSnack" aria-haspopup="dialog" aria-controls="snackOverlay">その他のメニューはこちら</button>
         </p>
       </div>
 
@@ -272,72 +288,83 @@
   </section>
 
   <!-- SNACK MENU DRAWER (SLIDE UP OVERLAY) -->
-  <div class="snack-overlay" id="snackOverlay" aria-modal="true" role="dialog">
+  <div class="snack-overlay" id="snackOverlay" aria-modal="true" role="dialog" aria-labelledby="snackMenuTitle">
     <div class="snack-panel">
       <div>
         <div class="snack-panel-header">
-          <h3 class="snack-panel-title">SNACKS</h3>
+          <h3 class="snack-panel-title" id="snackMenuTitle">SNACKS</h3>
           <button class="snack-close-btn" id="btnCloseSnack" aria-label="メニューを閉じる">&times;</button>
         </div>
 
+        <p class="snack-pricing-note">表示価格はすべて税別です。現金払いの方は消費税分をサービスいたします。</p>
         <div class="snack-list-grid">
-          <!-- Item Card 1 -->
-          <div class="snack-item-card">
-            <span class="snack-item-name">黒トリュフ味カシューナッツ</span>
-          </div>
-          <!-- Item Card 2 -->
-          <div class="snack-item-card">
-            <span class="snack-item-name">麻辣花生（マーラーピーナッツ）</span>
-          </div>
           <!-- Item Card 3 -->
           <div class="snack-item-card">
             <span class="snack-item-name">ミックスナッツ</span>
+            <span class="snack-item-price">¥500</span>
           </div>
           <!-- Item Card 4 -->
           <div class="snack-item-card">
             <span class="snack-item-name">ジャイアントコーン</span>
+            <span class="snack-item-price">¥500</span>
           </div>
           <!-- Item Card 5 -->
           <div class="snack-item-card">
             <span class="snack-item-name">ピスタチオ</span>
+            <span class="snack-item-price">¥600</span>
           </div>
           <!-- Item Card 6 -->
           <div class="snack-item-card">
             <span class="snack-item-name">ナッツ盛合せ</span>
+            <span class="snack-item-price">¥800</span>
           </div>
           <!-- Item Card 7 -->
           <div class="snack-item-card">
             <span class="snack-item-name">チョコレート</span>
+            <span class="snack-item-price">¥600</span>
           </div>
           <!-- Item Card 8 -->
           <div class="snack-item-card">
             <span class="snack-item-name">ホタテのヒモ</span>
+            <span class="snack-item-price">¥500</span>
           </div>
           <!-- Item Card 9 -->
           <div class="snack-item-card">
             <span class="snack-item-name">黒豆種の枝豆</span>
+            <span class="snack-item-price">¥600</span>
           </div>
           <!-- Item Card 10 -->
           <div class="snack-item-card">
             <span class="snack-item-name">ビーフジャーキー</span>
+            <span class="snack-item-price">¥900</span>
           </div>
           <!-- Item Card 11 -->
           <div class="snack-item-card">
             <span class="snack-item-name">クリームチーズ（ブルーベリージャムのせ）</span>
+            <span class="snack-item-price">¥900</span>
           </div>
           <!-- Item Card 12 -->
           <div class="snack-item-card">
             <span class="snack-item-name">チーズ盛り合わせ</span>
+            <span class="snack-item-price">¥1,500</span>
           </div>
           <!-- Item Card 13 -->
           <div class="snack-item-card">
             <span class="snack-item-name">生ハム</span>
+            <span class="snack-item-price">¥1,000</span>
           </div>
           <!-- Item Card 14 -->
           <div class="snack-item-card">
             <span class="snack-item-name">5種のソーセージ盛合せ</span>
+            <span class="snack-item-price">¥1,200</span>
           </div>
           <!-- Item Card 15 -->
+          <div class="snack-item-card">
+            <span class="snack-item-name">黒トリュフ味カシューナッツ</span>
+          </div>
+          <div class="snack-item-card">
+            <span class="snack-item-name">麻辣花生（マーラーピーナッツ）</span>
+          </div>
           <div class="snack-item-card">
             <span class="snack-item-name">スナック菓子 ポテトチップ等</span>
           </div>
@@ -345,6 +372,7 @@
       </div>
 
       <div class="snack-panel-footer">
+        <p>価格の記載がないメニューは、スタッフへお尋ねください。</p>
         <p>各種おつまみは仕入れ状況により変更となる場合がございます。</p>
       </div>
     </div>
